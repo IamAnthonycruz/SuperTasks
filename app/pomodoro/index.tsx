@@ -12,6 +12,7 @@ import {
 
 export default function PomodoroTimer() {
   const dispatch = useDispatch();
+
   const { timeLeft, isRunning, activeTaskId } = useSelector(
     (state: any) => state.pomodoro
   );
@@ -46,13 +47,13 @@ export default function PomodoroTimer() {
         >
           <Picker.Item label="-- Select --" value={null} />
           {todos.map((todo: any) => (
-            <Picker.Item key={todo.id} label={todo.text} value={todo.id} />
+            <Picker.Item key={todo.id} label={todo.title} value={todo.id} />
           ))}
         </Picker>
       </View>
 
       {selectedTask && (
-        <Text style={styles.taskText}>🔗 {selectedTask.text}</Text>
+        <Text style={styles.taskText}>🔗 {selectedTask.title}</Text>
       )}
 
       <View style={styles.buttons}>
