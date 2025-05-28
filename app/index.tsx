@@ -61,7 +61,7 @@ export default function HomeScreen() {
 
   return (
     <View style={styles.container}>
-      <Text style={styles.header}>👋 Welcome Back!</Text>
+      <Text style={styles.header}>Welcome Back!</Text>
 
       <View style={styles.card}>
         <Text style={styles.cardTitle}>📋 To-Do Summary</Text>

@@ -89,7 +89,7 @@ export default function TodoApp() {
   };
 
   // Delete todo
-  const handleDelete = async (id: number) => {
+  const handleDelete = async (id: any) => {
     dispatch(deleteTodo(id));
     await deleteTodoFromSupabase(id);
   };

@@ -1,6 +1,6 @@
 import { createSlice } from "@reduxjs/toolkit";
 
-const POMODORO_DURATION = 25 * 60;
+const POMODORO_DURATION = 5;
 
 const pomodoroSlice = createSlice({
   name: "pomodoro",
@@ -21,8 +21,10 @@ const pomodoroSlice = createSlice({
       state.isRunning = false;
     },
     tick: (state) => {
-      if (state.isRunning && state.timeLeft > 0) {
-        state.timeLeft -= 1;
+      if (state.isRunning) {
+        if (state.timeLeft > 0) {
+          state.timeLeft -= 1;
+        }
       }
     },
     setActiveTask: (state, action) => {

@@ -1,15 +1,14 @@
 import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
 
+import { createClient } from "@supabase/supabase-js";
+
 export interface Todo {
-  id: string; // UUID from Supabase
+  id: string;
   title: string;
   completed: boolean;
 }
-
-const SUPABASE_URL = "https://cczzcyrwfhbifqvrrivy.supabase.co";
-const SUPABASE_KEY =
-  "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImNjenpjeXJ3ZmhiaWZxdnJyaXZ5Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NDgyODE1NTAsImV4cCI6MjA2Mzg1NzU1MH0.FRPXHYCnkmQsGFWN29SP0GyJxoVCl4_GRuFxcb2yDCU"; // use env variables in production
-
+const SUPABASE_KEY = process.env.EXPO_PUBLIC_SUPABASE_KEY!;
+const SUPABASE_URL = process.env.EXPO_PUBLIC_SUPABASE_URL!;
 export const todoApi = createApi({
   reducerPath: "todoApi",
   baseQuery: fetchBaseQuery({
